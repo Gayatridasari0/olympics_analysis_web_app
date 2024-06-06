@@ -113,7 +113,7 @@ elif user_menu == 'Country-wise Analysis':
     st.pyplot(fig)
 
     st.title('Top 10 athletes of '+selected_country)
-    top_10_df = helper.most_successful_country_wise(df,country_list)
+    top_10_df = helper.most_successful_country_wise(df,selected_country)
     st.table(top_10_df)
 elif user_menu == 'Athlethe-wise Analysis':
     athlete_df = df.drop_duplicates(subset=['Name', 'region'])
