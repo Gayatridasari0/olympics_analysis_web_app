@@ -57,6 +57,7 @@ def most_successful_sport_wise(df, sport):
     x = temp_df['Name'].value_counts().reset_index().head(15).merge(df, left_on='Name', right_on='Name', how='left')[
         ['Name', 'Sport', 'region', 'count']].drop_duplicates('Name')
     x.rename(columns={'count': 'Medals'}, inplace=True)
+    x = x.reset_index(drop=True)
     return x
 
 
@@ -67,6 +68,7 @@ def most_successful_country_wise(df, country):
     x = temp_df['Name'].value_counts().reset_index().head(10).merge(df, left_on='Name', right_on='Name', how='left')[
         ['Name', 'Sport', 'count']].drop_duplicates('Name')
     x.rename(columns={'count': 'Medals'}, inplace=True)
+    x = x.reset_index(drop=True)
     return x
 
 
